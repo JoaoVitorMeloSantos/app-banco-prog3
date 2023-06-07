@@ -8,13 +8,14 @@ package br.edu.ifmg.bsi.prog3;
  *
  * @author aluno
  */
-public class Prog3 {
+public class Banco {
 
     public static void main(String[] args) {
-        Lista<String> lista = new Lista<>();
-        Nodo<String> dado = new Nodo<>("oi");
+        Conta c = new Conta(123, 0);
+        Lista<Conta> lista = new Lista<>();
+        Nodo<Conta> dado = new Nodo<>(c);
         lista.inserir(dado);
-        System.out.println(lista.buscar("oi").getDado());
+        System.out.println(lista.buscar(c).getDado().getNumero());
         
     }
 }
