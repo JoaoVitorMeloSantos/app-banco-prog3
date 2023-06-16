@@ -32,5 +32,37 @@ public class Conta {
         this.numero = numero;
         this.valor = valor;
     }
+    
+    public void operacao(String linha) {
+        String[] conteudo = linha.split(",");
+        int numeroConta = Integer.parseInt(conteudo[0]);
+        int operacao = Integer.parseInt(conteudo[1]);
+        int valor = Integer.parseInt(conteudo[2]);
+        
+        this.numero = numeroConta;
+        
+        switch(operacao) {
+            case 1:
+                sacar(valor);
+            case 2:
+                depositar(valor);
+            case 3:
+                pagar(valor);
+        }
+    }
+    
+    public void depositar(int valor){
+        this.valor += valor;
+    }
+    
+    public int sacar(int valor){
+        this.valor -= valor;
+        return valor;
+    }
+    
+    public int pagar(int valor){
+        this.valor -= valor;
+        return valor;
+    }
 
 }
