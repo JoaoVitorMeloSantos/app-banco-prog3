@@ -10,7 +10,7 @@ package br.edu.ifmg.bsi.prog3;
  */
 public class Conta {
     private int numero;
-    private double valor;
+    private double saldo;
 
     public int getNumero() {
         return numero;
@@ -20,52 +20,56 @@ public class Conta {
         this.numero = numero;
     }
 
-    public double getValor() {
-        return valor;
+    public double getSaldo() {
+        return saldo;
     }
 
-    public void setValor(double valor) {
-        this.valor = valor;
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
     }
     
     public Conta(int numero) {
         this.numero = numero;
     }
     
-    public void operacao(String linha) {
-        String[] conteudo = linha.split(",");
-        int numeroConta = Integer.parseInt(conteudo[0]);
-        int operacao = Integer.parseInt(conteudo[1]);
-        int valor = Integer.parseInt(conteudo[2]);
-        
-        this.numero = numeroConta;
-        
-        switch(operacao) {
-            case 1:
-                sacar(valor);
-            case 2:
-                depositar(valor);
-            case 3:
-                pagar(valor);
+//    public void operacao(int tipo, double valor) {
+//        double saldo;
+//        
+//
+//        
+//        return saldo;
+//    }
+    
+    public double depositar(double valor){
+        this.saldo += valor;
+        return this.getSaldo();
+    }
+    
+    public double sacar(double valor){
+        this.saldo -= valor;
+        return this.getSaldo();
+    }
+    
+    public double pagar(double valor){
+        this.saldo -= valor;
+        return this.getSaldo();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
         }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Conta other = (Conta) obj;
+        return this.numero == other.numero;
     }
     
-    public void depositar(int valor){
-        this.valor += valor;
-    }
-    
-    public int sacar(int valor){
-        this.valor -= valor;
-        return valor;
-    }
-    
-    public int pagar(int valor){
-        this.valor -= valor;
-        return valor;
-    }
-    
-    public boolean equals(Conta c) {
-        return numero == c.numero;
-    }
+      
 
 }

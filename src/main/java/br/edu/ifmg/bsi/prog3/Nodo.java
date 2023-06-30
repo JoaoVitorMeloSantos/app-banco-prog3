@@ -10,15 +10,23 @@ package br.edu.ifmg.bsi.prog3;
  */
 class Nodo<T>{
     
+    Nodo<T> anterior;
     Nodo<T> proximo;
     T dado;
+    
+    
 
     public Nodo(T dado) {
         this.dado = dado;
+        this.anterior = null;
         this.proximo = null;
     }
 
-    public T getDado() {
-        return dado;
+    public Nodo<T> getAnterior() {
+        return anterior;
+    }
+       
+    public Nodo<T> getProximo() {
+        return proximo;
     }
 }

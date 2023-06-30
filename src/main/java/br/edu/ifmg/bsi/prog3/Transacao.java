@@ -11,7 +11,8 @@ package br.edu.ifmg.bsi.prog3;
 public class Transacao {
     int numeroConta;
     int operacao;
-    int valor;
+    double valor;
+    double saldo;
 
     public int getNumeroConta() {
         return numeroConta;
@@ -24,23 +25,58 @@ public class Transacao {
     public int getOperacao() {
         return operacao;
     }
+    
+    public String getOperacaoString() {
+        switch(this.getOperacao()) {
+            case 1 -> {
+                return "Saque";
+            }
+            case 2 -> {
+                return "Depósito";
+            }
+            case 4 -> {
+                return "Pagamento";
+            } 
+            default -> {
+                return null;
+            }
+        }
+    }
 
     public void setOperacao(int operacao) {
         this.operacao = operacao;
     }
 
-    public int getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(int valor) {
+    public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
     }
 
     public Transacao(int numeroConta, int operacao, int valor) {
         this.numeroConta = numeroConta;
         this.operacao = operacao;
         this.valor = valor;
+    }
+    
+    public void imprimir(){
+        System.out.println("Número da Conta:" + numeroConta);
+        System.out.println("----------------------------------------");
+        System.out.println("Tipo | Valor | Saldo");
+        System.out.println("----------------------------------------");
+        System.out.println("----------------------------------------");
+        System.out.println("----------------------------------------");
+        //System.out.println("Saldo Atual:" + );
     }
   
 }
