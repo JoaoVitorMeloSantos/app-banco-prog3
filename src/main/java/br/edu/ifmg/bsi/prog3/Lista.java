@@ -19,15 +19,15 @@ public class Lista<T> implements Iterable<T>{
         this.cabeca = null;
     }
     
-    public void inserir(Nodo<T> x){
+    public void inserir(T x){
         Nodo<T> cabecaAntiga = cabeca;
-        cabeca = x;
-        x.proximo = cabecaAntiga;
+        cabeca = new Nodo(x);
+        cabeca.proximo = cabecaAntiga;
     }
     
     public Nodo<T> buscar(T dado){
         Nodo<T> aux = cabeca;
-        while(aux.dado != null && !aux.dado.equals(dado)){
+        while(aux != null && !aux.equals(dado)){
             aux = aux.proximo;
         }
         return aux;
@@ -49,20 +49,5 @@ public class Lista<T> implements Iterable<T>{
                 return resultado; 
             }
         };
-    }
-}
-
-class Nodo<T>{
-    
-    Nodo<T> proximo;
-    T dado;
-
-    public Nodo(T dado) {
-        this.proximo = null;
-        this.dado = dado;
-    }
-
-    public T getDado() {
-        return dado;
     }
 }

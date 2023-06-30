@@ -28,9 +28,8 @@ public class Conta {
         this.valor = valor;
     }
     
-    public Conta(int numero, double valor) {
+    public Conta(int numero) {
         this.numero = numero;
-        this.valor = valor;
     }
     
     public void operacao(String linha) {
@@ -63,6 +62,10 @@ public class Conta {
     public int pagar(int valor){
         this.valor -= valor;
         return valor;
+    }
+    
+    public boolean equals(Conta c) {
+        return numero == c.numero;
     }
 
 }
